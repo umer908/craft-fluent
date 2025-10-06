@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+# Craft + Fluent UI (Vite + React + TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal proof-of-concept editor showing **Craft.js (Basic-style)** running in a **Vite + React + TypeScript** app, with UI controls migrated to **Microsoft Fluent UI v9**.
 
-Currently, two official plugins are available:
+> **Note:** This repo demonstrates the core pieces as a **sample**. Completing all requested enhancements is time-intensive; I’m sharing this trimmed implementation for review and will continue after selection.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Vite** (React + TypeScript)
+- **Craft.js** – drag & drop page editor primitives
+- **Fluent UI v9** – Microsoft design system components
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## What’s Included
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- ✅ Vite React app (TypeScript)
+- ✅ Craft.js editor shell with minimal components:
+  - `Container` (canvas, droppable)
+  - `Text` (inline-editable)
+  - `Btn` (button)
+  - `Toolbox` to insert elements
+- ✅ Basic left-rail layout (panels on the **left**)
+- ✅ Fluent UI v9 integration (`FluentProvider` + `webLightTheme`)
+- ✅ Fluent UI components used in toolbox/button example
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Still Pending / Next Steps (post-selection)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- 🔄 Replace remaining raw HTML controls with Fluent UI equivalents (Inputs, Sliders, Switches, etc.)
+- 🧭 Full “Settings” panel parity (per-component props editors in Fluent UI)
+- 🧩 Optional: **Reka.js** data-binding panel (JSON editor → live-bound components)
+- 🧱 Polished theming, tokens, and layout patterns per Fluent UI guidelines
+- 🧪 Unit tests and stricter type coverage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Getting Started
+
+```bash
+# 1) Install
+npm install
+
+# 2) Run dev
+npm run dev
+
+#
